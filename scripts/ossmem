@@ -1,0 +1,62 @@
+#!/bin/bash
+dx() {
+ip=("10.23.xxx.32" "10.23.xxx.71" "10.23.xxx.72")
+num=$1
+for i in ${ip[@]}
+do
+echo "IP: $i" "key: user_pay_content_"$num"_vod" 
+echo get user_pay_content_"$num"_vod|nc $i 11211
+done
+}
+
+lt() {
+ip=(10.23.xxx.72 10.23.xxx.73 10.23.xxx.74 10.23.xxx.75)
+num=$1
+
+for i in ${ip[@]}
+do
+echo "IP: $i" "key: user_pay_content_"$num"_vod" 
+echo get user_pay_content_"$num"_vod|nc $i 11211
+done
+}
+
+dxdel() {
+ip=(10.23.xxx.32 10.23.xxx.71 10.23.xxx.72)
+num=$1
+for i in ${ip[@]}
+do
+echo delete user_pay_content_"$num"_vod|nc $i 11211 && echo "$i delete done"
+done
+}
+
+ltdel() {
+ip=(10.23.xxx.72 10.23.xxx.73 10.23.xxx.74 10.23.xxx.75)
+num=$1
+for i in ${ip[@]}
+do
+echo delete user_pay_content_"$num"_vod|nc $i 11211 && echo "$i delete done"
+done
+}
+
+case $1 in 
+
+dx)
+    dx $2
+    ;;
+
+lt)
+    lt $2
+    ;;
+
+dxdel)
+    dxdel $2
+    ;;
+
+ltdel)
+    ltdel $2
+    ;;
+
+*)
+   echo "Usage: dx|lt|del usertoken"
+   ;;
+esac

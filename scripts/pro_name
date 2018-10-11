@@ -1,0 +1,1 @@
+mysql -uappuser -papp123user -h 10.23.245.16 -e "SELECT name FROM ma.ma_program WHERE code='"$1"' "|awk '{if (NR>1) {print $1} }'

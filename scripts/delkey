@@ -1,0 +1,12 @@
+#!/bin/bash
+while :
+do
+ansible dxaaa -m shell -a "cat /opt/tomcat/node*/logs/catalina.out|tail -100000|grep 'target'"|awk -F '+++usertoken:' '{print $2}'|awk -F ',' '{print $1}'|sort|uniq > /home/bash/authfail.log
+for num in `cat /home/bash/authfail.log`
+do
+    ossmem dxdel $num
+done
+sleep 1800
+done 
+
+

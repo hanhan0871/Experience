@@ -1,0 +1,7 @@
+if [ -z $1 ]
+then
+echo "Usage: [get 订购关系]: oss dbip userid [temptoken]:oss dbip usertoken"
+else
+mysql -uuser -ppassword --host $1 -e "SELECT onumber,userid,pname,contentid,begintime,endtime FROM oss.tablename WHERE userid = '$2'"
+fi
+

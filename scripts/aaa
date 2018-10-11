@@ -1,0 +1,21 @@
+#!/bin/bash
+ansible $1 -m shell -a "grep -ia $2 /opt/tomcat/node*/logs/catalina.out"
+#获取16位token
+if [ $(echo "$2"|wc -c) -eq 13 ]
+then
+num=`getnum $2`
+if [ -z "$num" ]
+then
+    continue
+else
+    echo -e "\nThe user's usertoken is $num \n"
+fi
+fi
+
+c=`echo "$2" |wc -c `
+if [ "$c" -eq 13 ]
+then
+   echo "user's order form is: "
+   sh /home/bash/order 10.23.xxx.xx $2 
+   sh /home/bash/order 10.23.xxx.xx $2 
+fi

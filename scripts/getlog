@@ -1,0 +1,43 @@
+#!/bin/bash
+case $1 in
+
+dxaaa)
+    sudo aaa $1 $2
+    ;;
+ltaaa)
+    sudo aaa $1 $2
+    ;;
+ydjnaaa)
+    sudo aaa $1 $2
+    ;;
+ydqdaaa)
+    sudo aaa $1 $2
+    ;;
+dxzbaaa)
+    sudo aaa $1 $2
+    ;;
+ydzbaaa)
+    sudo aaa $1 $2
+    ;;
+dxzbepg)
+    sudo epg $1 $2
+    ;;
+dxepg)
+    sudo epg $1 $2
+    ;;
+ltepg)
+    sudo epg $1 $2
+    ;;
+ydjnepg)
+    sudo epg $1 $2
+    ;;
+ydqdepg)
+    sudo epg $1 $2
+    ;;
+ydzbepg)
+    sudo epg $1 $2
+    ;;
+*)
+    echo "Usage: xxx"
+    ;;
+esac

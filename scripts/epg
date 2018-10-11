@@ -1,0 +1,10 @@
+ansible $1 -m shell -a "grep $2 /opt/tomcat7.85/logs/catalina.out"
+#获取16位token
+if [ `echo "$2"|wc -c` -eq 13 ]
+then
+num=`getnum $2`
+if [ ! -z $num ]
+then
+echo -e "\nThe user's usertoken is $num"
+fi
+fi

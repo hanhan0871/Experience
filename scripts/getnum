@@ -1,0 +1,3 @@
+#通过输入用户id查询用户对应的token
+mysql -uuser -ppassword-h 10.23.xxx.xx -e 'SELECT number FROM db.table WHERE id='$1''|awk '{if (NR>1) {print $1} }'
+

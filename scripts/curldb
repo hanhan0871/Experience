@@ -1,0 +1,37 @@
+#!/bin/bash
+
+gettemp() {
+u=$1
+mysql -uuser -ppassword--host 10.23.xxx.xx -e "SELECT temptoken FROM authbilling.auth_login_info WHERE usertoken = '$u'"|awk '{if (NR>1) print $1}'
+mysql -uuser -ppassword--host 10.23.xxx.xx -e "SELECT temptoken FROM authbilling.auth_login_info WHERE usertoken = '$u'"|awk '{if (NR>1) print $1}'
+}
+
+#联通点播：
+lt() {
+t=`gettemp $1`
+p=$2
+curl 'http://10.23.xxx.xx:8080/xxx&riddle=5c4ae76cbe1cfb6b0f57423db956a544&programid='$p'&temptoken='$t''
+}
+
+#电信点播：
+dx() {
+t=`gettemp $1`
+p=$2
+curl 'http://10.23.xxx.xx:8080/xxx&riddle=dc8645163ac74806e4dd9a130ecdc830&programid='$p'&categoryid=1020002008&temptoken='$t''
+}
+
+case $1 in 
+
+dx)
+   dx $2 $3
+   ;;
+
+lt)
+   lt $2 $3
+   ;;
+
+*)
+   echo "Usage: curldb <dx|lt> <usertoken> <programcode>"
+   ;;
+
+esac
