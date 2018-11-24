@@ -7,7 +7,7 @@ import sys
 import time, datetime
 
 def get_newadd_order(date1, date2):
-	conn = pymysql.connect(host='10.23.247.26', port=3306, user='appuser', passwd='app123user',
+	conn = pymysql.connect(host='10.23.210.26', port=3306, user='user', passwd='app123',
 					   		db='oss', charset='utf8')
 
 	cursor = conn.cursor()
@@ -66,7 +66,7 @@ def newadd_order():
 ###################################################
 
 def get_ordering():
-    conn = pymysql.connect(host='10.23.247.26', port=3306, user='appuser', passwd='app123user',
+    conn = pymysql.connect(host='10.23.210.26', port=3306, user='user', passwd='app123',
                            db='oss', charset='utf8')
 
     cursor = conn.cursor()
